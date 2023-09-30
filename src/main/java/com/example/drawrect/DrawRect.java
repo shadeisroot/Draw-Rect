@@ -12,8 +12,8 @@ import java.io.IOException;
 
 public class DrawRect extends Application {
     private Button hejKnap;
-    final Canvas canvas = new Canvas(550,550);
-    private int step = 10;
+    final static Canvas canvas = new Canvas(550,550);
+    private static int step = 10;
     @Override
     public void start(Stage stage) throws IOException {
         hejKnap = new Button();
@@ -27,9 +27,9 @@ public class DrawRect extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
 
-        for (int i = 0; i < 10; i++) {
-            gc.strokeRect(10 + i * step,10 + i * step,90 + i * step, 90 + i * step);
-        }
+      //  for (int i = 0; i < 10; i++) {
+        //    gc.strokeRect(10 + i * step,10 + i * step,90 + i * step, 90 + i * step);
+       // }
 
         root.getChildren().addAll(canvas, hejKnap);
         // Sæt scene og vindue (stage)
@@ -39,7 +39,11 @@ public class DrawRect extends Application {
         stage.show();
     }
     public static void Draw(){
-
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.clearRect(0,0,canvas.getWidth(), canvas.getHeight());
+        for (int i = 0; i < 10; i++) {
+            gc.strokeRect(10 + i * step,10 + i * step,90 + i * step, 90 + i * step);
+        }
     }
 
     public static void main(String[] args) {
