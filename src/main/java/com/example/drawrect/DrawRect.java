@@ -15,7 +15,6 @@ public class DrawRect extends Application {
     private Button drawOval;
     final static Canvas canvas = new Canvas(550,550);
     private static int step = 10;
-
     private static GraphicsContext gc = canvas.getGraphicsContext2D();
     @Override
     public void start(Stage stage) throws IOException {
@@ -26,6 +25,7 @@ public class DrawRect extends Application {
         drawOval = new Button();
         drawOval.setText("Draw Oval");
         drawOval.setOnAction(evt -> Drawoval());
+        drawOval.setTranslateX(100.0);
         Group root = new Group();
         Scene s = new Scene(root, 350, 350);
         root.getChildren().addAll(canvas, drawRect, drawOval);
